@@ -1,9 +1,39 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import CustomText from "../components/CustomText"
 import Colors from '../basics/Colors';
 
 export default function Welcome({ navigation }) {
+
+  const roomList = [
+    {
+      id: 1,
+      route: "LivingRoom",
+      name: "Oturma Odası"
+    },
+    {
+      id: 2,
+      route: "BedRoom",
+      name: "Yatak Odası"
+    },
+    {
+      id: 3,
+      route: "Nursery",
+      name: "Çocuk Odası"
+    },
+    {
+      id: 4,
+      route: "Kitchen",
+      name: "Mutfak"
+    },
+    {
+      id: 5,
+      route: "Sink",
+      name: "Lavabo"
+    }
+
+  ]
+
   return (
     <View style={styles.container}>
       <View style={{
@@ -15,10 +45,11 @@ export default function Welcome({ navigation }) {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          display: "flex"
+          display: "flex",
+          paddingHorizontal: 32
         }}>
           <View>
-          <CustomText style={{
+            <CustomText style={{
               ...styles.text,
               color: Colors.text,
               marginBottom: 0
@@ -58,6 +89,39 @@ export default function Welcome({ navigation }) {
             }}></View>
           </View>
         </View>
+
+        <View style={{ marginTop: 24 }}>
+          <View style={{
+            paddingHorizontal: 32,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            flexDirection: "row",
+            overflowX: "scroll",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            "&::WebkitScrollbar": {
+              display: "none"
+            }
+          }}>
+            {
+              roomList?.map((item, i) => (
+                <TouchableOpacity key={i} style={{
+                  height: 32,
+                  backgroundImage: item?.id == 1 ? `linear-gradient(to right, ${Colors.light}, ${Colors.main})` : `linear-gradient(to top, ${Colors.dark3}, ${Colors.dark3})`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  paddingHorizontal: 16,
+                  borderRadius: 16
+                }}>
+                  <CustomText style={{ fontSize: 14, color: Colors.white }}>{item?.name}</CustomText>
+                </TouchableOpacity>
+              ))
+            }
+          </View>
+        </View>
+
       </View>
     </View>
   );
@@ -69,8 +133,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 24,
-    paddingHorizontal: 32
+    paddingVertical: 24
   },
   text: {
     fontSize: 12,

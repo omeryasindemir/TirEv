@@ -7,5 +7,9 @@ export default Colors = {
     white: "#fff",
     black: "#000",
     border: "#50535B",
-    text: "#cccccc"
+    text: "#cccccc",
+    dark: "#354080",
+    dark2: "#355380",
+    dark3: "#363d4b",
+    light: "#53c5ff"
 }
