@@ -14,8 +14,10 @@
     "@expo/metro-runtime": "~4.0.1",
     "@react-navigation/native": "^7.1.6",
     "@react-navigation/native-stack": "^7.3.10",
+    "bootstrap-icons": "^1.11.3",
     "expo": "~52.0.43",
     "expo-font": "~13.0.4",
+    "expo-image": "~2.0.7",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -25,8 +27,7 @@
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.4.0",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-web": "~0.19.13",
-    "expo-image": "~2.0.7"
+    "react-native-web": "~0.19.13"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

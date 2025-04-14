@@ -39,7 +39,8 @@ export default function Welcome({ navigation }) {
       <View style={{
         width: "100%",
         maxWidth: "1280px",
-        flex: 1
+        flex: 1,
+        position: "relative"
       }}>
         <View style={{
           flexDirection: "row",
@@ -149,13 +150,13 @@ export default function Welcome({ navigation }) {
                 width: 128
               }} source={require("../assets/clouds-and-sun.png")} />
 
-              <View style={{marginLeft: 0}}>
-                <CustomText style={{fontSize: 12, color: Colors.text}}>14 Nisan 2025</CustomText>
-                <CustomText style={{fontSize: 14, color: Colors.white}}>Güneşli</CustomText>
+              <View style={{ marginLeft: 0 }}>
+                <CustomText style={{ fontSize: 12, color: Colors.text }}>14 Nisan 2025</CustomText>
+                <CustomText style={{ fontSize: 14, color: Colors.white }}>Güneşli</CustomText>
               </View>
 
-              <View style={{marginRight: 12}}>
-                <CustomText style={{fontSize: 45, color: Colors.white}}>24°</CustomText>
+              <View style={{ marginRight: 12 }}>
+                <CustomText style={{ fontSize: 45, color: Colors.white }}>24°</CustomText>
               </View>
 
               <View style={{
@@ -172,6 +173,26 @@ export default function Welcome({ navigation }) {
           </View>
 
         </View>
+
+        <TouchableOpacity style={{
+          height: 64,
+          width: 64,
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          left: "calc(50% - 32px)",
+          bottom: 0,
+          backgroundImage: `linear-gradient(-45deg, orange, #FDDD50)`,
+          boxShadow: "0px 0px 8px 4px rgba(255,224,0, 0.16)"
+        }}>
+          <Image style={{
+            height: 32,
+            width: 32,
+            color: Colors.white
+          }} source={require("../assets/download.svg")} />
+        </TouchableOpacity>
 
       </View>
     </View>
