@@ -46,7 +46,7 @@ export default function Welcome({ navigation }) {
           alignItems: "center",
           justifyContent: "space-between",
           display: "flex",
-          paddingHorizontal: 32
+          paddingHorizontal: 16
         }}>
           <View>
             <CustomText style={{
@@ -92,7 +92,7 @@ export default function Welcome({ navigation }) {
 
         <View style={{ marginTop: 24 }}>
           <View style={{
-            paddingHorizontal: 32,
+            paddingHorizontal: 16,
             display: "flex",
             alignItems: "center",
             gap: 8,
@@ -120,6 +120,57 @@ export default function Welcome({ navigation }) {
               ))
             }
           </View>
+
+          <View style={{
+            paddingHorizontal: 16,
+            marginTop: 32
+          }}>
+            <View style={{
+              height: 200,
+              width: "100%",
+              maxWidth: 360,
+              backgroundImage: `linear-gradient(to bottom, ${Colors.box}, ${Colors.gray})`,
+              borderRadius: 20,
+              borderWidth: 1,
+              borderTopColor: Colors.border,
+              borderLeftColor: Colors.border,
+              borderRightColor: Colors.box,
+              borderBottomColor: Colors.box,
+              boxShadow: "0px 8px 16px 0px rgba(0,0,0,0.32)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              gap: 16,
+              position: "relative"
+            }}>
+              <Image style={{
+                height: 128,
+                width: 128
+              }} source={require("../assets/clouds-and-sun.png")} />
+
+              <View style={{marginLeft: 0}}>
+                <CustomText style={{fontSize: 12, color: Colors.text}}>14 Nisan 2025</CustomText>
+                <CustomText style={{fontSize: 14, color: Colors.white}}>Güneşli</CustomText>
+              </View>
+
+              <View style={{marginRight: 12}}>
+                <CustomText style={{fontSize: 45, color: Colors.white}}>24°</CustomText>
+              </View>
+
+              <View style={{
+                position: "absolute",
+                height: 0,
+                width: 0,
+                left: 96,
+                top: 96,
+                borderRadius: "50%",
+                boxShadow: "0px 0px 64px 32px rgba(255,224,0, 0.32)"
+              }}></View>
+
+            </View>
+          </View>
+
         </View>
 
       </View>
@@ -133,7 +184,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 24
+    paddingVertical: 16
   },
   text: {
     fontSize: 12,
