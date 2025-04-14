@@ -58,7 +58,7 @@ export default function Welcome({ navigation }) {
             <CustomText style={{
               ...styles.text,
               fontSize: 20
-            }}>Selam, <span style={{ fontWeight: "bold" }}>Nurefşan</span> ✌️</CustomText>
+            }}>Selam, <CustomText style={{ fontWeight: "bold" }}>Nurefşan</CustomText> ✌️</CustomText>
 
           </View>
           <View style={{

@@ -17,7 +17,7 @@ import {
   Poppins_900Black,
 } from "@expo-google-fonts/poppins";
 
-import { View } from 'react-native-web';
+import { View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
