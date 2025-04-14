@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import CustomText from "../components/CustomText"
 import Colors from '../basics/Colors';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Welcome({ navigation }) {
 
@@ -36,6 +37,12 @@ export default function Welcome({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <LinearGradient
+        colors={[Colors.gray, Colors.background]}
+        style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      />
       <View style={{
         width: "100%",
         maxWidth: "1280px",
@@ -67,70 +74,86 @@ export default function Welcome({ navigation }) {
             borderRadius: "50%",
             borderWidth: 1,
             borderColor: Colors.border,
-            backgroundImage: `linear-gradient(-45deg, ${Colors.border}, ${Colors.gray})`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden"
           }}>
+            <LinearGradient
+              colors={[Colors.border, Colors.gray]}
+              style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+            />
             <View style={{
               height: 20,
               width: 20,
               borderRadius: "50%",
-              backgroundImage: `linear-gradient(-45deg, ${Colors.white}, ${Colors.border})`,
               marginBottom: 4,
-              marginTop: -8
-            }}></View>
+              marginTop: -8,
+              overflow: "hidden"
+            }}>
+              <LinearGradient
+                colors={[Colors.white, Colors.border]}
+                style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              />
+            </View>
             <View style={{
               height: 40,
               width: 40,
               borderRadius: "50%",
-              backgroundImage: `linear-gradient(-45deg, ${Colors.white}, ${Colors.border})`,
-              marginBottom: -40
-            }}></View>
+              marginBottom: -40,
+              overflow: "hidden"
+            }}>
+              <LinearGradient
+                colors={[Colors.white, Colors.border]}
+                style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              />
+            </View>
           </View>
         </View>
 
         <View style={{ marginTop: 24 }}>
-          <View style={{
-            paddingHorizontal: 16,
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            flexDirection: "row",
-            overflowX: "scroll",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            "&::WebkitScrollbar": {
-              display: "none"
-            }
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{
+            marginHorizontal: 16
           }}>
             {
               roomList?.map((item, i) => (
                 <TouchableOpacity key={i} style={{
                   height: 32,
-                  backgroundImage: item?.id == 1 ? `linear-gradient(to right, ${Colors.light}, ${Colors.main})` : `linear-gradient(to top, ${Colors.dark3}, ${Colors.dark3})`,
+                  minWidth: 128,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   paddingHorizontal: 16,
-                  borderRadius: 16
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  paddingTop: 3,
+                  marginLeft: item?.id != 1 ? 8 : 0
                 }}>
+                  <LinearGradient
+                    colors={item?.id == 1 ? [Colors.light, Colors.main] : [Colors.dark3, Colors.dark3]}
+                    style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+                  />
                   <CustomText style={{ fontSize: 14, color: Colors.white }}>{item?.name}</CustomText>
                 </TouchableOpacity>
               ))
             }
-          </View>
+          </ScrollView>
 
           <View style={{
             paddingHorizontal: 16,
             marginTop: 32
           }}>
+
             <View style={{
               height: 200,
               width: "100%",
-              maxWidth: 360,
-              backgroundImage: `linear-gradient(to bottom, ${Colors.box}, ${Colors.gray})`,
+              maxWidth: 400,
               borderRadius: 20,
               borderWidth: 1,
               borderTopColor: Colors.border,
@@ -143,20 +166,29 @@ export default function Welcome({ navigation }) {
               justifyContent: "center",
               flexDirection: "row",
               gap: 16,
-              position: "relative"
+              position: "relative",
+              overflow: "hidden"
             }}>
+
+              <LinearGradient
+                colors={[Colors.box, Colors.gray]}
+                style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              />
+
               <Image style={{
                 height: 128,
                 width: 128
               }} source={require("../assets/clouds-and-sun.png")} />
 
               <View style={{ marginLeft: 0 }}>
-                <CustomText style={{ fontSize: 12, color: Colors.text }}>14 Nisan 2025</CustomText>
-                <CustomText style={{ fontSize: 14, color: Colors.white }}>Güneşli</CustomText>
+                <CustomText style={{ fontSize: 12, color: Colors.text, marginTop: -4 }}>14 Nisan 2025</CustomText>
+                <CustomText style={{ fontSize: 18, color: Colors.white }}>Güneşli</CustomText>
               </View>
 
               <View style={{ marginRight: 12 }}>
-                <CustomText style={{ fontSize: 45, color: Colors.white }}>24°</CustomText>
+                <CustomText style={{ fontSize: 48, color: Colors.white }}>24°</CustomText>
               </View>
 
               <View style={{
@@ -174,7 +206,7 @@ export default function Welcome({ navigation }) {
 
         </View>
 
-        <TouchableOpacity style={{
+        {/* <TouchableOpacity style={{
           height: 64,
           width: 64,
           borderRadius: "50%",
@@ -184,15 +216,21 @@ export default function Welcome({ navigation }) {
           position: "absolute",
           left: "calc(50% - 32px)",
           bottom: 0,
-          backgroundImage: `linear-gradient(-45deg, orange, #FDDD50)`,
-          boxShadow: "0px 0px 8px 4px rgba(255,224,0, 0.16)"
+          boxShadow: "0px 0px 8px 4px rgba(255,224,0, 0.16)",
+          overflow: "hidden"
         }}>
+          <LinearGradient
+            colors={["orange", "#FDDD50"]}
+            style={{ position: "absolute", left: 0, top: 0, bottom: 0, right: 0 }}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          />
           <Image style={{
             height: 32,
             width: 32,
             color: Colors.white
           }} source={require("../assets/download.svg")} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
       </View>
     </View>
@@ -201,11 +239,10 @@ export default function Welcome({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundImage: `linear-gradient(-45deg, ${Colors.background}, ${Colors.gray})`,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 48
+    paddingVertical: 36
   },
   text: {
     fontSize: 12,

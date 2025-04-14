@@ -2,13 +2,13 @@
   "expo": {
     "name": "TirEv",
     "slug": "TirEv",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/smart-house.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/smart-house.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,27 +17,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/smart-house.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.felxdev.TirEv"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/smart-house.png"
     },
     "extra": {
       "eas": {
         "projectId": "1670e55b-42d4-4047-bd4b-6ceec0600cf8"
       }
     },
-    "owner": "felxdev",
-    "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": ["./assets/fonts/Poppins-Regular.ttf"]
-        }
-      ]
-    ]
+    "owner": "felxdev"
   }
 }
