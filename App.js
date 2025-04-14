@@ -50,7 +50,7 @@ export default function App() {
   } else {
     return (
       <NavigationContainer linking={linking}>
-        <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Welcome" >
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="Home" component={Home} />
         </Stack.Navigator>
