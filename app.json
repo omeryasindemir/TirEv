@@ -30,6 +30,14 @@
         "projectId": "1670e55b-42d4-4047-bd4b-6ceec0600cf8"
       }
     },
-    "owner": "felxdev"
+    "owner": "felxdev",
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Poppins-Regular.ttf"]
+        }
+      ]
+    ]
   }
 }
