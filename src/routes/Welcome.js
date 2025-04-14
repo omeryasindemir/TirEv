@@ -95,7 +95,7 @@ export default function Welcome({ navigation }) {
             paddingHorizontal: 16,
             display: "flex",
             alignItems: "center",
-            gap: 8,
+            gap: 10,
             flexDirection: "row",
             overflowX: "scroll",
             scrollbarWidth: "none",
