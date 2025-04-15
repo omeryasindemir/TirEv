@@ -119,13 +119,13 @@ export default function Welcome({ navigation }) {
 
         <View style={{ marginTop: 24 }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{
-            marginHorizontal: 16
+            paddingLeft: 16
           }}>
             {
               roomList?.map((item, i) => (
                 <TouchableOpacity key={i} style={{
                   height: 32,
-                  minWidth: 128,
+                  minWidth: 145,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -133,7 +133,9 @@ export default function Welcome({ navigation }) {
                   borderRadius: 16,
                   overflow: "hidden",
                   paddingTop: 3,
-                  marginLeft: item?.id != 1 ? 8 : 0
+                  marginLeft: item?.id != 1 ? 8 : 0,
+                  marginRight: roomList?.length == item?.id ? 32 : 0
+
                 }}>
                   <LinearGradient
                     colors={item?.id == 1 ? [Colors.light, Colors.main] : [Colors.dark3, Colors.dark3]}
